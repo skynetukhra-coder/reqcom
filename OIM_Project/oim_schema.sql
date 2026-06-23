@@ -1,4 +1,4 @@
-﻿-- MySQL dump 10.13  Distrib 8.0.46, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.46, for Win64 (x86_64)
 --
 -- Host: localhost    Database: oim
 -- ------------------------------------------------------
@@ -276,7 +276,7 @@ UNLOCK TABLES;
 /*!50001 SET character_set_results     = utf8mb4 */;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/* DEFINER REMOVED FOR HOSTINGER DEPLOY */
 /*!50001 VIEW `requisition_stock_summary` AS select `r`.`section_id` AS `section_id`,`r`.`item_id` AS `item_id`,`r`.`model_id` AS `model_id`,`r`.`quantity` AS `requisition_qty`,greatest((ifnull(sum(`s`.`quantity`),0) - `r`.`quantity`),0) AS `stock_qty`,curdate() AS `today_date`,`la`.`last_approve_date` AS `last_approve_date` from ((`requisitions` `r` left join `stock_rcpt` `s` on(((`r`.`item_id` = `s`.`item_id`) and (`r`.`model_id` = `s`.`model_id`)))) left join (select `requisitions`.`section_id` AS `section_id`,max(`requisitions`.`approve_date`) AS `last_approve_date` from `requisitions` group by `requisitions`.`section_id`) `la` on((`r`.`section_id` = `la`.`section_id`))) group by `r`.`section_id`,`r`.`item_id`,`r`.`model_id`,`r`.`quantity`,`la`.`last_approve_date` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -294,7 +294,7 @@ UNLOCK TABLES;
 /*!50001 SET character_set_results     = utf8mb4 */;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/* DEFINER REMOVED FOR HOSTINGER DEPLOY */
 /*!50001 VIEW `stock_quantity` AS select `stock_rcpt`.`model_id` AS `model_id`,sum(`stock_rcpt`.`quantity`) AS `total` from `stock_rcpt` group by `stock_rcpt`.`model_id` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
