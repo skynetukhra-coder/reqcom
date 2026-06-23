@@ -1,0 +1,27 @@
+# Local Database Configurations (Environment Specific)
+Handcomp/config/db_config.php
+OIM_Project/db_config.php
+
+# Local Invoices Uploads (just in case they exist locally)
+OIM_Project/uploads/
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# OS System Files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# Editor temp/backups
+#*
+*~
+*.bak
+*.tmp

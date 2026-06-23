@@ -1,0 +1,12 @@
+<?php
+/**
+ * Database configuration overrides for OIM_Project.
+ * Copy this file to 'db_config.php' and enter your production credentials.
+ * DO NOT commit 'db_config.php' to version control (it is ignored by .gitignore).
+ */
+
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASS', '1234');
+define('DB_NAME', 'oim');
+?>

@@ -1,0 +1,619 @@
+/* ============================================================
+   HANDCOMP v2.0 — GLOBAL STYLESHEET
+   Indian Audit & Accounts Department
+   O/o PAG (Audit-I), West Bengal
+   ============================================================ */
+
+/* ── Google Fonts (load via <head> in each PHP file) ──────── */
+/* @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap'); */
+
+/* ── CSS Variables ────────────────────────────────────────── */
+:root {
+    --navy:        #0d2c54;
+    --navy-dark:   #071a35;
+    --navy-mid:    #163d6e;
+    --navy-light:  #1e4f8c;
+    --gold:        #b8962e;
+    --gold-light:  #d4af5a;
+    --gold-pale:   #f5edda;
+    --red-dark:    #8b1a1a;
+    --cream:       #faf8f3;
+    --white:       #ffffff;
+    --gray-100:    #f1f3f5;
+    --gray-200:    #e9ecef;
+    --gray-300:    #ced4da;
+    --gray-500:    #868e96;
+    --gray-700:    #495057;
+    --gray-900:    #212529;
+    --success:     #16a34a;
+    --warning:     #b45309;
+    --info:        #0369a1;
+    --shadow-sm:   0 2px 8px  rgba(13, 44, 84, 0.10);
+    --shadow-md:   0 6px 24px rgba(13, 44, 84, 0.14);
+    --shadow-lg:   0 16px 48px rgba(13, 44, 84, 0.18);
+    --radius:      8px;
+    --radius-lg:   12px;
+    --font-serif:  'EB Garamond', Georgia, 'Times New Roman', serif;
+    --font-sans:   'DM Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ── Reset ────────────────────────────────────────────────── */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ── Base Body ────────────────────────────────────────────── */
+body {
+    font-family: var(--font-sans);
+    background-color: var(--cream);
+    color: var(--gray-900);
+    min-height: 100vh;
+    /* Remove the old centered flex — header pages need block layout */
+    display: block;
+}
+
+/* ── Special: login page still centers its card ──────────── */
+body.login-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-mid) 60%, var(--navy-light) 100%);
+}
+
+
+/* ============================================================
+   SITE HEADER  (used on every page except login)
+   Layout: [Logo Left] [Center Text Block] [Logo Right]
+   ============================================================ */
+
+.site-header {
+    background-color: var(--navy-dark);
+    border-bottom: 3px solid var(--gold);
+    width: 100%;
+}
+
+/* ── Top strip: logo-left | title-center | logo-right ─────── */
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 28px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    gap: 16px;
+}
+
+/* LEFT logo slot */
+.header-logo-left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 0 0 auto;          /* don't grow/shrink */
+    width: 80px;             /* fixed width keeps center truly centered */
+}
+
+/* RIGHT logo slot */
+.header-logo-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 0 0 auto;
+    width: 80px;
+}
+
+/* Logo circle (shared style for both) */
+.site-logo {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 2px solid var(--gold);
+    background-color: var(--white);
+    box-shadow: 0 0 0 3px rgba(184, 150, 46, 0.25), var(--shadow-sm);
+    flex-shrink: 0;
+}
+
+.site-logo img {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+    display: block;
+}
+
+/* CENTER title block */
+.header-title {
+    flex: 1;
+    text-align: center;
+    padding: 0 12px;
+}
+
+.header-title .dept-line {
+    font-family: var(--font-serif);
+    font-size: 21px;
+    font-weight: 600;
+    color: var(--gold-light);
+    letter-spacing: 0.3px;
+    line-height: 1.25;
+}
+
+.header-title .office-line {
+    font-family: var(--font-sans);
+    font-size: 12.5px;
+    color: rgba(255, 255, 255, 0.72);
+    margin-top: 3px;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+}
+
+.header-title .tagline-line {
+    font-family: var(--font-serif);
+    font-size: 12px;
+    font-style: italic;
+    color: var(--gold);
+    margin-top: 5px;
+    letter-spacing: 0.2px;
+}
+
+/* ── Navigation bar (below the top strip) ─────────────────── */
+.header-nav {
+    display: flex;
+    align-items: center;
+    background-color: var(--navy-mid);
+    padding: 0 28px;
+    min-height: 40px;
+    gap: 0;
+}
+
+.header-nav a.nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: rgba(255, 255, 255, 0.78);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 10px 15px;
+    border-bottom: 3px solid transparent;
+    letter-spacing: 0.25px;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+    white-space: nowrap;
+}
+
+.header-nav a.nav-link:hover {
+    color: var(--gold-light);
+    border-bottom-color: var(--gold-light);
+    background: rgba(0, 0, 0, 0.18);
+}
+
+.header-nav a.nav-link.active {
+    color: var(--gold-light);
+    border-bottom-color: var(--gold-light);
+    background: rgba(0, 0, 0, 0.18);
+}
+
+/* Pushes logout to the right */
+.nav-spacer { flex: 1; }
+
+/* Nav info text (e.g., "Welcome, Name | Role") */
+.nav-user-info {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.50);
+    padding: 0 12px;
+    white-space: nowrap;
+}
+
+/* Logout button inside nav */
+.nav-logout {
+    display: inline-block;
+    background: rgba(139, 26, 26, 0.75);
+    color: var(--white) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 5px;
+    padding: 5px 14px !important;
+    font-size: 12.5px !important;
+    font-weight: 600 !important;
+    text-decoration: none;
+    margin-left: 10px;
+    border-bottom: 1px solid rgba(255,255,255,.18) !important;
+    letter-spacing: 0.3px;
+    transition: background 0.2s !important;
+    cursor: pointer;
+}
+
+.nav-logout:hover {
+    background: rgba(139, 26, 26, 1) !important;
+    border-bottom-color: rgba(255,255,255,.18) !important;
+}
+
+/* ── Page content wrapper ─────────────────────────────────── */
+.page-content {
+    padding: 28px 32px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.page-content.narrow {
+    max-width: 760px;
+}
+
+/* ── Page title bar (inside content) ─────────────────────── */
+.page-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 22px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.page-title h2 {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Gold accent bar before heading */
+.page-title h2::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 24px;
+    background: var(--gold);
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+/* ============================================================
+   FORM ELEMENTS  (global)
+   ============================================================ */
+label {
+    display: block;
+    margin-top: 14px;
+    margin-bottom: 5px;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--gray-700);
+    letter-spacing: 0.55px;
+    text-transform: uppercase;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="email"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px 13px;
+    border: 1.5px solid var(--gray-300);
+    border-radius: var(--radius);
+    font-family: var(--font-sans);
+    font-size: 13.5px;
+    color: var(--gray-900);
+    background-color: var(--gray-100);
+    transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--navy);
+    background-color: var(--white);
+    box-shadow: 0 0 0 3px rgba(13, 44, 84, 0.10);
+}
+
+input[readonly], input[disabled], textarea[disabled] {
+    background-color: var(--gray-200);
+    color: var(--gray-500);
+    cursor: not-allowed;
+    border-color: var(--gray-200);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* ── Primary Button ───────────────────────────────────────── */
+button,
+.btn {
+    display: inline-block;
+    padding: 11px 20px;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius);
+    font-family: var(--font-sans);
+    font-size: 13.5px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    box-shadow: 0 4px 10px rgba(13, 44, 84, 0.22);
+    white-space: nowrap;
+}
+
+button:hover, .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(13, 44, 84, 0.32);
+    background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+}
+
+button:active, .btn:active {
+    transform: translateY(0);
+}
+
+/* Full-width button variant */
+button.btn-block, .btn.btn-block {
+    width: 100%;
+    margin-top: 18px;
+    padding: 13px;
+    font-size: 14.5px;
+}
+
+/* Small button */
+.btn-sm {
+    padding: 6px 14px;
+    font-size: 12px;
+    border-radius: 6px;
+    box-shadow: none;
+    margin-top: 0;
+}
+
+/* Gold button variant */
+.btn-gold {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    color: var(--navy-dark);
+    box-shadow: 0 4px 10px rgba(184, 150, 46, 0.25);
+}
+.btn-gold:hover {
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+    box-shadow: 0 6px 16px rgba(184, 150, 46, 0.35);
+    color: var(--navy-dark);
+}
+
+/* Danger button variant */
+.btn-danger {
+    background: linear-gradient(135deg, var(--red-dark) 0%, #a82020 100%);
+    color: var(--white);
+}
+
+/* ── Links ────────────────────────────────────────────────── */
+a {
+    color: var(--navy);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover { color: var(--navy-light); text-decoration: underline; }
+
+/* ── Error / Alert text ───────────────────────────────────── */
+.alert {
+    padding: 10px 14px;
+    border-radius: var(--radius);
+    font-size: 13px;
+    margin-bottom: 14px;
+    border: 1px solid transparent;
+}
+.alert-error {
+    background: #fff0f0;
+    color: var(--red-dark);
+    border-color: #f5c6c6;
+}
+.alert-success {
+    background: #f0fdf4;
+    color: #166534;
+    border-color: #86efac;
+}
+
+/* ── Old .error class (backward compat) ───────────────────── */
+.error {
+    margin-top: 10px;
+    color: var(--red-dark);
+    text-align: center;
+    font-size: 13px;
+}
+
+/* ── Success Popup (toast — used in branch/section officer) ── */
+.popup {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--success);
+    color: var(--white);
+    padding: 13px 20px;
+    border-radius: var(--radius);
+    font-size: 13.5px;
+    font-weight: 500;
+    display: none;
+    box-shadow: var(--shadow-md);
+    z-index: 9999;
+    border-left: 4px solid #0f5132;
+}
+
+/* ── Tables ───────────────────────────────────────────────── */
+.table-wrapper {
+    overflow-x: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    background: var(--white);
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    background: var(--white);
+}
+
+th {
+    background-color: var(--navy);
+    color: var(--white);
+    padding: 11px 13px;
+    font-weight: 600;
+    text-align: left;
+    white-space: nowrap;
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+}
+
+td {
+    padding: 10px 13px;
+    color: var(--gray-700);
+    border-bottom: 1px solid var(--gray-200);
+    white-space: nowrap;
+}
+
+tbody tr:hover {
+    background-color: #f4f7fb;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Sticky header for long tables */
+.table-sticky th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+/* ── Status badges ────────────────────────────────────────── */
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+}
+.badge-pending  { background: #fff3cd; color: #856404;  border: 1px solid #fde68a; }
+.badge-ongoing  { background: #dbeafe; color: #1e40af;  border: 1px solid #93c5fd; }
+.badge-resolved { background: #dcfce7; color: #166534;  border: 1px solid #86efac; }
+
+/* ── Pagination ───────────────────────────────────────────── */
+.pagination {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 18px;
+}
+
+.pagination a {
+    padding: 6px 12px;
+    border: 1px solid var(--gray-300);
+    border-radius: 6px;
+    font-size: 13px;
+    color: var(--gray-700);
+    text-decoration: none;
+    transition: all 0.15s;
+    white-space: nowrap;
+}
+
+.pagination a:hover { border-color: var(--navy); color: var(--navy); }
+.pagination a.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
+
+/* ── Card ─────────────────────────────────────────────────── */
+.card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+
+.card-header {
+    background: linear-gradient(120deg, var(--navy) 0%, var(--navy-mid) 100%);
+    color: var(--white);
+    padding: 18px 24px;
+    border-bottom: 3px solid var(--gold);
+}
+
+.card-header h3 {
+    font-family: var(--font-serif);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.card-header p {
+    font-size: 12.5px;
+    color: rgba(255, 255, 255, 0.65);
+    margin-top: 4px;
+}
+
+.card-body { padding: 24px; }
+
+/* ── Back link ────────────────────────────────────────────── */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--navy);
+    text-decoration: none;
+    margin-top: 16px;
+    font-weight: 500;
+}
+.back-link:hover { text-decoration: underline; }
+
+/* ── Site Footer ──────────────────────────────────────────── */
+.site-footer {
+    background: var(--navy-dark);
+    color: rgba(255, 255, 255, 0.45);
+    text-align: center;
+    padding: 16px 20px;
+    font-size: 11.5px;
+    border-top: 2px solid var(--gold);
+    margin-top: 40px;
+}
+
+.site-footer span.highlight {
+    color: var(--gold);
+    font-weight: 500;
+}
+
+/* ── Utility ──────────────────────────────────────────────── */
+.text-center { text-align: center; }
+.mt-8  { margin-top: 8px;  }
+.mt-12 { margin-top: 12px; }
+.mt-16 { margin-top: 16px; }
+.mt-20 { margin-top: 20px; }
+.mt-24 { margin-top: 24px; }
+
+/* ── Responsive tweaks ────────────────────────────────────── */
+@media (max-width: 768px) {
+    .header-top { padding: 10px 14px; gap: 10px; }
+    .header-logo-left, .header-logo-right { width: 52px; }
+    .site-logo { width: 48px; height: 48px; }
+    .site-logo img { width: 42px; height: 42px; }
+    .header-title .dept-line  { font-size: 15px; }
+    .header-title .office-line{ font-size: 10px; }
+    .header-title .tagline-line{ font-size: 10px; }
+    .header-nav { padding: 0 10px; overflow-x: auto; }
+    .header-nav a.nav-link { padding: 10px 10px; font-size: 12px; }
+    .page-content { padding: 18px 14px; }
+}
+
+@media (max-width: 480px) {
+    .header-title .dept-line { font-size: 12px; }
+    .header-title .tagline-line { display: none; }
+    .site-logo { width: 40px; height: 40px; }
+    .site-logo img { width: 36px; height: 36px; }
+}

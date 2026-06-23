@@ -1,0 +1,176 @@
+/* ===================== GLOBAL ===================== */
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #4b6cb7, #182848);
+    margin: 0;
+    padding: 20px;
+}
+
+/* ===================== CONTAINER ===================== */
+
+/* Default form container (login, small forms) */
+.login-container {
+    background: #fff;
+    width: 360px;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    margin: auto;
+}
+
+/* Wide container for dashboards */
+.dashboard-container {
+    background: #fff;
+    width: 95%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* ===================== HEADINGS ===================== */
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* ===================== INPUTS ===================== */
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+/* ===================== BUTTONS ===================== */
+
+button {
+    padding: 10px;
+    background: #4b6cb7;
+    border: none;
+    color: white;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #3a54a3;
+}
+
+/* Small buttons for tables */
+.table-btn {
+    padding: 5px 10px;
+    font-size: 12px;
+    width: auto;
+}
+
+/* Specific button colors */
+.btn-update {
+    background: #28a745;
+}
+
+.btn-insert {
+    background: #007bff;
+}
+
+.btn-danger {
+    background: #dc3545;
+}
+
+/* ===================== LINKS ===================== */
+
+a {
+    text-decoration: none;
+    color: #4b6cb7;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ===================== ERROR ===================== */
+
+.error {
+    background: #ffdddd;
+    color: #a94442;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* ===================== TABLE ===================== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+/* Header */
+th {
+    background: #4b6cb7;
+    color: white;
+    padding: 12px;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+/* Cells */
+td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    font-size: 13px;
+}
+
+/* Hover effect */
+tr:hover {
+    background: #f1f5ff;
+}
+
+/* Inputs inside table */
+td input,
+td select {
+    width: 100%;
+    padding: 6px;
+    font-size: 12px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+/* Highlight new row */
+.new-row {
+    background: #eef4ff;
+}
+
+/* ===================== UTILITIES ===================== */
+
+/* Center text */
+.text-center {
+    text-align: center;
+}
+
+/* Margin top */
+.mt-20 {
+    margin-top: 20px;
+}
