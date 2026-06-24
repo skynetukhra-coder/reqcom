@@ -25,10 +25,15 @@ if(isset($_GET['item_id'])){
         $sql .= " AND m.model_name NOT LIKE '%Roll%' AND i.item_name NOT LIKE '%Roll%'";
     }
 
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sssss", $item_id, $item_id, $item_id, $item_id, $item_id);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    try {
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("sssss", $item_id, $item_id, $item_id, $item_id, $item_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+    } catch (Exception $e) {
+        echo "<option value=''>QUERY_ERROR: " . htmlspecialchars($e->getMessage()) . "</option>";
+        exit();
+    }
 
     echo "<option value=''>-- Select Model --</option>";
 
