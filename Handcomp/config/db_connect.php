@@ -9,7 +9,17 @@ if (file_exists($config_file)) {
     if (!defined('DB_NAME')) define('DB_NAME', 'hardcomp');
 }
 
-$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+/* CREATE CONNECTION WITH DEBUGGING */
+try {
+    $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+} catch (Exception $e) {
+    echo "CONNECTION_ERROR: " . $e->getMessage();
+    exit();
+}
+
+/* SET CONNECTION CHARSET AND COLLATION TO PREVENT MIXED COLLATION ERRORS */
+$conn->set_charset("utf8mb4");
+$conn->query("SET collation_connection = utf8mb4_general_ci");
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
