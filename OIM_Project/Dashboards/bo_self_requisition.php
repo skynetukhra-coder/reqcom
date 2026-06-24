@@ -79,7 +79,7 @@ function loadModels() {
 
     modelDropdown.innerHTML = "<option>Loading...</option>";
 
-    fetch("/project/OIM_Project/ajax/fetch_models.php?item_id=" + encodeURIComponent(item_id))
+    fetch("../ajax/fetch_models.php?item_id=" + encodeURIComponent(item_id))
         .then(response => response.text())
         .then(data => {
             modelDropdown.innerHTML = data;

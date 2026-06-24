@@ -102,7 +102,7 @@ function loadModels() {
 
     modelDropdown.innerHTML = "<option>Loading...</option>";
 
-    fetch("/project/OIM_Project/ajax/fetch_models.php?item_id=" + encodeURIComponent(item_id))
+    fetch("../ajax/fetch_models.php?item_id=" + encodeURIComponent(item_id))
         .then(response => response.text())
         .then(data => {
             modelDropdown.innerHTML = data;
@@ -156,7 +156,7 @@ body{ font-family:Arial,sans-serif; background: linear-gradient(135deg, #edf2f7,
             <div class="session-user">
                 <i class="ti ti-user-circle"></i> Logged in as: <strong><?php echo htmlspecialchars($_SESSION['userid']); ?></strong>
             </div>
-            <a href="/project/OIM_Project/Logins/logout.php" class="logout-btn">
+            <a href="../Logins/logout.php" class="logout-btn">
                 <i class="ti ti-logout"></i> Logout
             </a>
         </div>

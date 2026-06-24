@@ -428,7 +428,7 @@ body{
 
             </div>
 
-           <a href="/project/OIM_Project/Logins/logout.php" class="logout-btn">
+           <a href="../Logins/logout.php" class="logout-btn">
 
                 <i class="ti ti-logout"></i>
 

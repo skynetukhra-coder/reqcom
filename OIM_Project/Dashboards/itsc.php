@@ -579,7 +579,7 @@ body{
     <div class="header-top">
 
         <img
-        src="/project/OIM_Project/assets/ashoka.png"
+        src="../assets/ashoka.png"
         class="logo">
 
         <div class="header-center">
@@ -605,7 +605,7 @@ body{
         </div>
 
         <img
-        src="/project/OIM_Project/assets/ag_logo.png"
+        src="../assets/ag_logo.png"
         class="logo">
 
     </div>
@@ -633,7 +633,7 @@ body{
             </div>
 
             <a
-            href="/project/OIM_Project/dashboards/itsc_dashboard.php"
+            href="itsc_dashboard.php"
             class="back-btn">
 
                 <i class="ti ti-arrow-left"></i>

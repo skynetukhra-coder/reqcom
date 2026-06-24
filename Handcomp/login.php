@@ -537,7 +537,7 @@ Sign In to Portal
 
 <div class="home-wrap">
 
-<a href="/project/index.php"
+<a href="../index.php"
 class="home-btn">
 
 <i class="ti ti-home"></i>

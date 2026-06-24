@@ -370,7 +370,7 @@ body{
     <div class="header-top">
 
         <img
-        src="/project/Handcomp/assets/images/images.png"
+        src="../assets/ashoka.png"
         class="logo">
 
         <div class="header-center">
@@ -389,14 +389,14 @@ body{
 
             <div class="sub">
 
-                Hardware Complaint System
+                Office Item Management System
 
             </div>
 
         </div>
 
         <img
-        src="/project/Handcomp/assets/images/IA&AS_Logo.png"
+        src="../assets/ag_logo.png"
         class="logo">
 
     </div>

@@ -470,7 +470,7 @@ body{
     <div class="header-top">
 
         <img
-        src="../../OIM_Project/assets/ashoka.png"
+        src="../assets/ashoka.png"
         class="logo">
 
         <div class="header-center">
@@ -496,7 +496,7 @@ body{
         </div>
 
         <img
-        src="../../OIM_Project/assets/ag_logo.png"
+        src="../assets/ag_logo.png"
         class="logo">
 
     </div>

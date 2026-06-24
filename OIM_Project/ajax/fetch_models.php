@@ -8,14 +8,15 @@ if(isset($_GET['item_id'])){
     // If 'RL' (Roll) is passed but the database references 'CAR' or 'ROLL', check for all permutations safely.
     $is_roll = ($item_id === 'RL' || strtolower($item_id) === 'roll');
 
+    // Force parameters and CONCAT expressions to collation 'utf8mb4_general_ci' to prevent collation mix errors on Hostinger
     $sql = "SELECT m.model_id, m.model_name 
             FROM models m
             LEFT JOIN items i ON m.item_id = i.item_id
-            WHERE (TRIM(m.item_id) = TRIM(?) 
-               OR TRIM(i.item_name) = TRIM(?)
-               OR TRIM(i.item_id) = TRIM(?)
-               OR i.item_name LIKE CONCAT('%', ?, '%')
-               OR m.item_id LIKE CONCAT('%', ?, '%'))";
+            WHERE (TRIM(m.item_id) = TRIM(? COLLATE utf8mb4_general_ci) 
+               OR TRIM(i.item_name) = TRIM(? COLLATE utf8mb4_general_ci)
+               OR TRIM(i.item_id) = TRIM(? COLLATE utf8mb4_general_ci)
+               OR i.item_name LIKE CONCAT('%', ?, '%') COLLATE utf8mb4_general_ci
+               OR m.item_id LIKE CONCAT('%', ?, '%') COLLATE utf8mb4_general_ci)";
 
     // If it's a Roll item, append an optional condition to capture models mismatched under 'CAR' or 'RL'
     if ($is_roll) {
